@@ -5,7 +5,8 @@
 #include <iostream>
 #include "../3rd/cmdline/cmdline.h"
 //http://viget.com/extend/game-programming-in-c-with-the-ncurses-library
-#include <curses.h>
+//#include <curses.h>
+#include <ncurses.h>
 
 int main(int argc, char *argv[]) {
   cmdline::parser cp;
@@ -15,11 +16,19 @@ int main(int argc, char *argv[]) {
 
   cp.parse_check(argc, argv);
 
+  initscr();
+  noecho();
+  curs_set(FALSE);
+  sleep(1);
+  endwin(); // Restore normal terminal behavior
+  
+  /*
   while(true) {
 	int ch = getch();
 	std::cout << ch << std::endl;
 	usleep(100000);
   }
+  */
   
   /*
   while (true) {
