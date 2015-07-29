@@ -1,3 +1,3 @@
-[submodule "cmdline"]
+[submodule "3rd/cmdline"]
 	path = 3rd/cmdline
 	url = https://github.com/tanakh/cmdline

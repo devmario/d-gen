@@ -1,0 +1,14 @@
+d-gen : d-gen.o
+	g++ -o build/d-gen build/obj/d-gen.o
+	tree build
+
+d-gen.o : 3rd/cmdline/cmdline.h src/d-gen.cpp
+	g++ -c src/d-gen.cpp -o build/obj/d-gen.o
+
+clean :
+	rm -f build/d-gen
+	rm -f build/obj/*
+	tree build
+
+test :
+	make clean && make && build/d-gen
